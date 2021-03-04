@@ -1,9 +1,8 @@
-#ifndef BOTOES_H
-#define BOTOES_H
+#ifndef BOTOES_INIT
+#define BOTOES_INIT
 
-void botoes_init(void);
-int botao_incrementar( void );
-int botao_decrementar( void );
-
+void botoes_init (void);
+int botao_liga (void);
+int botao_desliga (void);
 
 #endif

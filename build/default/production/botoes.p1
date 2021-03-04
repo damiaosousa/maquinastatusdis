@@ -1,7 +1,15 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"352 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
-[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 352: extern volatile unsigned char PORTD __attribute__((address(0x008)));
-[v _PORTD `Vuc ~T0 @X0 0 e@8 ]
+"1608 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1608:     struct {
+[s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S59 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"1607
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1607: typedef union {
+[u S58 `S59 1 ]
+[n S58 . . ]
+"1619
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 1619: extern volatile TRISDbits_t TRISDbits __attribute__((address(0x088)));
+[v _TRISDbits `VS58 ~T0 @X0 0 e@136 ]
 "358
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 358:     struct {
 [s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -248,7 +256,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h: 3546: __asm("EECON2 equ 018Dh");
 [; <" EECON2 equ 018Dh ;# ">
 "10 botoes.c
-[; ;botoes.c: 10: void botoes_init(void)
+[; ;botoes.c: 10: void botoes_init ( void )
 [v _botoes_init `(v ~T0 @X0 1 ef ]
 "11
 [; ;botoes.c: 11: {
@@ -256,41 +264,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _botoes_init ]
 [f ]
 "12
-[; ;botoes.c: 12:  PORTD = 1;
-[e = _PORTD -> -> 1 `i `uc ]
+[; ;botoes.c: 12:     TRISDbits.TRISD0 = 1;
+[e = . . _TRISDbits 0 0 -> -> 1 `i `uc ]
 "13
-[; ;botoes.c: 13: }
+[; ;botoes.c: 13:     TRISDbits.TRISD1 = 1;
+[e = . . _TRISDbits 0 1 -> -> 1 `i `uc ]
+"14
+[; ;botoes.c: 14: }
 [e :UE 138 ]
 }
-"15
-[; ;botoes.c: 15: int botao_incrementar( void )
-[v _botao_incrementar `(i ~T0 @X0 1 ef ]
 "16
-[; ;botoes.c: 16: {
-{
-[e :U _botao_incrementar ]
-[f ]
+[; ;botoes.c: 16: int S1 ( void )
+[v _S1 `(i ~T0 @X0 1 ef ]
 "17
-[; ;botoes.c: 17:     return(PORTDbits.RD3);
-[e ) -> . . _PORTDbits 0 3 `i ]
-[e $UE 139  ]
+[; ;botoes.c: 17: {
+{
+[e :U _S1 ]
+[f ]
 "18
-[; ;botoes.c: 18: }
+[; ;botoes.c: 18:     return ( PORTDbits.RD1 );
+[e ) -> . . _PORTDbits 0 1 `i ]
+[e $UE 139  ]
+"19
+[; ;botoes.c: 19: }
 [e :UE 139 ]
 }
-"20
-[; ;botoes.c: 20: int botao_decrementar( void )
-[v _botao_decrementar `(i ~T0 @X0 1 ef ]
 "21
-[; ;botoes.c: 21: {
-{
-[e :U _botao_decrementar ]
-[f ]
+[; ;botoes.c: 21: int S0 ( void )
+[v _S0 `(i ~T0 @X0 1 ef ]
 "22
-[; ;botoes.c: 22:     return(PORTDbits.RD2);
-[e ) -> . . _PORTDbits 0 2 `i ]
-[e $UE 140  ]
+[; ;botoes.c: 22: {
+{
+[e :U _S0 ]
+[f ]
 "23
-[; ;botoes.c: 23: }
+[; ;botoes.c: 23:     return ( PORTDbits.RD0 );
+[e ) -> . . _PORTDbits 0 0 `i ]
+[e $UE 140  ]
+"24
+[; ;botoes.c: 24: }
 [e :UE 140 ]
 }

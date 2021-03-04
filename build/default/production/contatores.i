@@ -7,7 +7,7 @@
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "contatores.c" 2
-# 10 "contatores.c"
+# 11 "contatores.c"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2492,44 +2492,57 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 10 "contatores.c" 2
+# 11 "contatores.c" 2
+
+# 1 "./config.h" 1
 
 
-void contatores_init( void )
+
+
+
+#pragma config FOSC = INTRC_NOCLKOUT
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = OFF
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = OFF
+#pragma config LVP = OFF
+
+
+#pragma config BOR4V = BOR40V
+#pragma config WRT = OFF
+# 12 "contatores.c" 2
+
+
+void contatores_init ( void )
 {
-
-  TRISDbits.TRISD5 = 0;
-  TRISDbits.TRISD6 = 0;
-  TRISDbits.TRISD7 = 0;
-
-  PORTDbits.RD5 = 0;
-  PORTDbits.RD6 = 0;
-  PORTDbits.RD7 = 0;
-
+    TRISDbits.TRISD5 = 0;
+    TRISDbits.TRISD6 = 0;
+    TRISDbits.TRISD7 = 0;
+    PORTDbits.RD5 = 0;
+    PORTDbits.RD6 = 0;
+    PORTDbits.RD7 = 0;
 }
 
-
-int k1_status(void)
+void K1 ( int estado )
 {
-    return(PORTDbits.RD7);
+    PORTDbits.RD7 = estado;
 }
 
-int k3_status(void)
+void K2 ( int estado )
 {
-    return(PORTDbits.RD5);
+    PORTDbits.RD6 = estado;
 }
 
-void k1( int x )
+void K3 ( int estado )
 {
-    PORTDbits.RD7 = x;
+    PORTDbits.RD5 = estado;
 }
 
-void k2( int x )
+int K1status ( void )
 {
-    PORTDbits.RD6 = x;
-
-}
-void k3 ( int x)
-{
-    PORTDbits.RD5 = x;
+    return ( PORTDbits.RD7 );
 }

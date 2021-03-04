@@ -7,45 +7,7 @@
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 10 "main.c"
-# 1 "./delay.h" 1
-
-
-
-
-void delay( unsigned int t);
-# 10 "main.c" 2
-
-# 1 "./display7.h" 1
-
-
-
-
-void diplay7seg_init( void );
-void display7seg(int c );
-# 11 "main.c" 2
-
-# 1 "./contatores.h" 1
-
-
-
-void contatores_init( void );
-int k1_status (void);
-int k3_status(void);
-void k1( int x );
-void k2( int x );
-void k3 ( int x);
-# 12 "main.c" 2
-
-# 1 "./botoescontagem.h" 1
-
-
-
-void botoesk_init(void);
-int s1(void);
-int s0(void);
-# 13 "main.c" 2
-
+# 11 "main.c"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -2530,7 +2492,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 27 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 14 "main.c" 2
+# 11 "main.c" 2
 
 # 1 "./config.h" 1
 
@@ -2552,70 +2514,111 @@ extern __bank0 __bit __timeout;
 
 #pragma config BOR4V = BOR40V
 #pragma config WRT = OFF
+# 12 "main.c" 2
+
+# 1 "./delay.h" 1
+
+
+
+
+void delay( unsigned int t);
+# 13 "main.c" 2
+
+# 1 "./contatores.h" 1
+
+
+
+void contatores_init ( void );
+void K1 ( int estado );
+void K2 ( int estado );
+void K3 ( int estado );
+int K1status ( void );
+# 14 "main.c" 2
+
+# 1 "./botoes.h" 1
+
+
+
+void botoes_init (void);
+int botao_liga (void);
+int botao_desliga (void);
 # 15 "main.c" 2
+
+# 1 "./display7.h" 1
+
+
+
+void display7seg_init ( void );
+void display7seg ( int c );
+void botoes ( void );
+int botao1 ( void );
+int botao0 ( void );
+# 16 "main.c" 2
 
 
 void main(void)
 {
     int cont = 0;
     int estado = 0;
-    contatores_init();
-    botoesk_init();
-    diplay7seg_init();
+    int t;
 
-
-    while(1)
+    while ( 1 )
     {
-        switch(estado)
+        switch ( estado )
         {
             case 0:
-                estado = 1;
-                break;
-
-             case 1:
-                if(s1() == 1)
+                    estado = 1;
+                    break;
+            case 1:
+                    contatores_init();
+                    botoes_init();
+                    display7seg_init();
                     estado = 2;
-                if(s0() == 1)
-                    estado = 7;
-                break;
+                    break;
             case 2:
-                k1(1);
-                k2(1);
-                estado = 3;
-                break;
+                    if ( S1() == 1 && K1status() == 0 )
+                        estado = 3;
+                    break;
             case 3:
-                delay(3000);
-                estado = 4;
-                break;
+                    K1(1);
+                    K2(1);
+                    K3(0);
+                    estado = 4;
+                    break;
             case 4:
-                k2(0);
-                k1(1);
-                estado =5;
-                break;
-            case 5:
-                k1(1);
-                k3(1);
-                estado = 6;
+                    t = 3000;
+                    estado = 6;
+                    break;
             case 6:
-                if(k3_status() == 1)
-                {
-                   ++cont;
-                }
-                display7seg(cont);
-                if(cont >= 9)
-                {
-                    cont = 0;
-                }
-                estado = 1;
-                break;
+                    delay(1);
+                    --t;
+                    if (t <= 0 )
+                        estado = 7;
+                    if( S0() == 1 )
+                        estado = 9;
+                    break;
             case 7:
-                k1(0);
-                k2(0);
-                k3(0);
-                estado = 1;
-                break;
-
-
+                    ++cont;
+                    estado = 8;
+                    break;
+            case 8:
+                    K1(1);
+                    K2(0);
+                    K3(1);
+                    if( S0() == 1 )
+                        estado = 9;
+                    break;
+            case 9:
+                    K1(0);
+                    K2(0);
+                    K3(0);
+                    estado = 2;
+                    break;
         }
+        display7seg( cont );
+
+        if ( cont >= 10)
+            cont = 0;
+
     }
 }

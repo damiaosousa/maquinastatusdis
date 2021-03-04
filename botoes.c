@@ -7,17 +7,18 @@
 
 #include <xc.h>
 
-void botoes_init(void)
+void botoes_init ( void )
 {
- PORTD = 1;
+    TRISDbits.TRISD0 = 1;
+    TRISDbits.TRISD1 = 1;
 }
 
-int botao_incrementar( void )
+int S1 ( void )
 {
-    return(PORTDbits.RD3);
+    return ( PORTDbits.RD1 );
 }
 
-int botao_decrementar( void )
+int S0 ( void )
 {
-    return(PORTDbits.RD2);
+    return ( PORTDbits.RD0 );
 }

@@ -3,12 +3,12 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 6 ]
-"11 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\botoescontagem.c
-[v _botoesk_init botoesk_init `(v  1 e 1 0 ]
+"10 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\botoes.c
+[v _botoes_init botoes_init `(v  1 e 1 0 ]
+"16
+[v _S1 S1 `(i  1 e 2 0 ]
 "21
-[v _s1 s1 `(i  1 e 2 0 ]
-"26
-[v _s0 s0 `(i  1 e 2 0 ]
+[v _S0 S0 `(i  1 e 2 0 ]
 "10 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c90\common\Umul8_16.c
@@ -17,29 +17,27 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"12 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\contatores.c
+"14 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\contatores.c
 [v _contatores_init contatores_init `(v  1 e 1 0 ]
-"31
-[v _k3_status k3_status `(i  1 e 2 0 ]
-"36
-[v _k1 k1 `(v  1 e 1 0 ]
-"41
-[v _k2 k2 `(v  1 e 1 0 ]
-"46
-[v _k3 k3 `(v  1 e 1 0 ]
+"24
+[v _K1 K1 `(v  1 e 1 0 ]
+"29
+[v _K2 K2 `(v  1 e 1 0 ]
+"34
+[v _K3 K3 `(v  1 e 1 0 ]
+"39
+[v _K1status K1status `(i  1 e 2 0 ]
 "13 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\delay.c
 [v _delay delay `(v  1 e 1 0 ]
-"16 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\display7.c
-[v _diplay7seg_init diplay7seg_init `(v  1 e 1 0 ]
-"23
+"18 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\display7.c
+[v _display7seg_init display7seg_init `(v  1 e 1 0 ]
+"25
 [v _display7seg display7seg `(v  1 e 1 0 ]
-"17 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\main.c
+"18 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\main.c
 [v _main main `(v  1 e 1 0 ]
 "228 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic16f887.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
-"352
-[v _PORTD PORTD `VEuc  1 e 1 @8 ]
-[s S107 . 1 `uc 1 RD0 1 0 :1:0 
+[s S108 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -49,11 +47,11 @@
 `uc 1 RD7 1 0 :1:7 
 ]
 "369
-[u S116 . 1 `S107 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES116  1 e 1 @8 ]
+[u S117 . 1 `S108 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES117  1 e 1 @8 ]
 "1478
 [v _TRISB TRISB `VEuc  1 e 1 @134 ]
-[s S86 . 1 `uc 1 TRISD0 1 0 :1:0 
+[s S87 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -63,64 +61,33 @@
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "1619
-[u S95 . 1 `S86 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES95  1 e 1 @136 ]
+[u S96 . 1 `S87 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES96  1 e 1 @136 ]
 "3449
 [v _ANSELH ANSELH `VEuc  1 e 1 @393 ]
-"11 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\display7.c
+"13 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\display7.c
 [v _vetor vetor `[16]uc  1 e 16 0 ]
-"17 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\main.c
+"18 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
+"21
+[v main@estado estado `i  1 a 2 8 ]
 "20
-[v main@estado estado `i  1 a 2 7 ]
-"19
-[v main@cont cont `i  1 a 2 5 ]
-"80
+[v main@cont cont `i  1 a 2 6 ]
+"22
+[v main@t t `i  1 a 2 4 ]
+"83
 } 0
-"21 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\botoescontagem.c
-[v _s1 s1 `(i  1 e 2 0 ]
+"18 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\display7.c
+[v _display7seg_init display7seg_init `(v  1 e 1 0 ]
 {
-"24
+"23
 } 0
-"26
-[v _s0 s0 `(i  1 e 2 0 ]
-{
-"29
-} 0
-"31 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\contatores.c
-[v _k3_status k3_status `(i  1 e 2 0 ]
-{
-"34
-} 0
-"46
-[v _k3 k3 `(v  1 e 1 0 ]
-{
-[v k3@x x `i  1 p 2 0 ]
-"49
-} 0
-"41
-[v _k2 k2 `(v  1 e 1 0 ]
-{
-[v k2@x x `i  1 p 2 0 ]
-"45
-} 0
-"36
-[v _k1 k1 `(v  1 e 1 0 ]
-{
-[v k1@x x `i  1 p 2 0 ]
-"39
-} 0
-"23 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\display7.c
+"25
 [v _display7seg display7seg `(v  1 e 1 0 ]
 {
 [v display7seg@c c `i  1 p 2 0 ]
-"26
-} 0
-"16
-[v _diplay7seg_init diplay7seg_init `(v  1 e 1 0 ]
-{
-"21
+"28
 } 0
 "13 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\delay.c
 [v _delay delay `(v  1 e 1 0 ]
@@ -128,13 +95,46 @@
 [v delay@t t `ui  1 p 2 0 ]
 "20
 } 0
-"12 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\contatores.c
+"14 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\contatores.c
 [v _contatores_init contatores_init `(v  1 e 1 0 ]
 {
-"23
+"22
 } 0
-"11 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\botoescontagem.c
-[v _botoesk_init botoesk_init `(v  1 e 1 0 ]
+"10 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\botoes.c
+[v _botoes_init botoes_init `(v  1 e 1 0 ]
+{
+"14
+} 0
+"16
+[v _S1 S1 `(i  1 e 2 0 ]
 {
 "19
+} 0
+"21
+[v _S0 S0 `(i  1 e 2 0 ]
+{
+"24
+} 0
+"34 C:\Users\20185076\MPLABXProjects\maquinastatusdis.X\contatores.c
+[v _K3 K3 `(v  1 e 1 0 ]
+{
+[v K3@estado estado `i  1 p 2 0 ]
+"37
+} 0
+"29
+[v _K2 K2 `(v  1 e 1 0 ]
+{
+[v K2@estado estado `i  1 p 2 0 ]
+"32
+} 0
+"39
+[v _K1status K1status `(i  1 e 2 0 ]
+{
+"42
+} 0
+"24
+[v _K1 K1 `(v  1 e 1 0 ]
+{
+[v K1@estado estado `i  1 p 2 0 ]
+"27
 } 0
